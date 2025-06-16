@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Zasoby
     const playerImg = document.getElementById('player-sprite');
-    const collectSound = document.getElementById('collect-sound');
-    const loseSound = document.getElementById('lose-sound');
+    // Dźwięki są wyłączone, bo nie mamy plików dźwiękowych
+    // const collectSound = document.getElementById('collect-sound');
+    // const loseSound = document.getElementById('lose-sound');
 
     // Ustawienia gry
     const GRAVITY = 0.6;
@@ -180,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         gameState.score++;
         gameState.foodItems.splice(index, 1);
         player.scaleX += 0.15; // Brzuch rośnie!
-        collectSound.currentTime = 0;
-        collectSound.play();
+        // collectSound.currentTime = 0;
+        // collectSound.play();
         updateUI();
 
         if (gameState.score > FOOD_LIMIT) {
@@ -205,8 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function endGame() {
         gameState.gameOver = true;
         gameOverScreen.classList.remove('hidden');
-        loseSound.currentTime = 0;
-        loseSound.play();
+        // loseSound.currentTime = 0;
+        // loseSound.play();
     }
 
     // --- Rysowanie na canvasie ---
@@ -351,5 +352,10 @@ document.addEventListener('DOMContentLoaded', () => {
     touchJump.addEventListener('touchend', (e) => { e.preventDefault(); keys.up = false; }, { passive: false });
     
     // Uruchomienie gry
-    playerImg.onload = init;
+    // Musimy poczekać aż obrazek się załaduje, inaczej gra może ruszyć za wcześnie
+    if (playerImg.complete) {
+        init();
+    } else {
+        playerImg.onload = init;
+    }
 });
