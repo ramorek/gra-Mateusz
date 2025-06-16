@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Przygody Mateusza</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="game-container">
+        <div id="ui-top">
+            <div id="food-counter">JEDZENIE: 0</div>
+        </div>
+        <canvas id="gameCanvas"></canvas>
+        <div id="game-over-screen" class="hidden">
+            <h1>Mateusz zjadł za dużo!</h1>
+            <button id="restart-button">Zagraj ponownie</button>
+        </div>
+    </div>
+
+    <div id="touch-controls">
+        <div class="touch-row">
+            <button id="touch-left" class="touch-btn">←</button>
+            <button id="touch-right" class="touch-btn">→</button>
+        </div>
+        <div class="touch-row">
+            <button id="touch-jump" class="touch-btn">↑</button>
+        </div>
+    </div>
+    
+    <!-- Zasoby gry (ukryte) - poprawione ścieżki -->
+    <img id="player-sprite" src="mateusz.png" alt="Sprite Mateusza" class="hidden">
+    
+    <!-- Dźwięki usunięte, bo nie ma plików -->
+
+    <script src="script.js"></script>
+</body>
+</html>
